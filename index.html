@@ -14,7 +14,7 @@
             color: #ffffff;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; 
             min-height: 100vh;
             padding: 20px;
             box-sizing: border-box;
@@ -22,14 +22,14 @@
 
         .slide-container {
             width: 100%;
-            max-width: 1280px; /* Standard presentation width */
-            aspect-ratio: 16 / 9; /* Standard presentation aspect ratio */
-            background-color: #111827; /* Dark base for slide */
+            max-width: 1280px;
+            min-height: 720px; 
+            background-color: #111827;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             display: flex;
             flex-direction: column;
-            overflow: hidden; /* Important for consistent aspect ratio feel */
+            overflow: hidden;
         }
 
         .slide-header {
@@ -37,6 +37,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 40px;
+            background-color: rgba(0,0,0,0.1);
         }
 
         .logo {
@@ -47,8 +48,8 @@
         }
 
         .logo-up {
-            background-color: #00C6AD; /* Teal color */
-            color: #111827; /* Dark color for text inside teal */
+            background-color: #00C6AD;
+            color: #111827;
             padding: 8px 12px;
             border-radius: 8px;
             margin-right: 8px;
@@ -65,7 +66,7 @@
         }
 
         .logo-lms {
-            color: #00C6AD; /* Teal color */
+            color: #00C6AD;
         }
 
         .slide-tag {
@@ -79,13 +80,14 @@
         }
 
         .slide-content {
-            padding: 20px 60px 40px; /* More vertical padding for content */
-            overflow-y: auto; /* Scroll if content overflows */
+            padding: 20px 50px 40px;
+            overflow-y: auto;
             flex-grow: 1;
+            max-height: calc(100vh - 120px); 
         }
 
         .slide-content h1 {
-            font-size: 2.8em; /* Larger for main title */
+            font-size: 2.6em;
             color: #ffffff;
             text-align: center;
             margin-bottom: 10px;
@@ -93,31 +95,31 @@
         }
 
         .slide-content .subtitle {
-            font-size: 1.4em;
-            color: #00C6AD; /* Teal color */
+            font-size: 1.3em;
+            color: #00C6AD;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             font-weight: 600;
         }
         
         .slide-content p.intro, .section p {
-            font-size: 1.1em;
-            line-height: 1.7;
+            font-size: 1.05em;
+            line-height: 1.65;
             color: #e0e0e0;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .section {
-            margin-bottom: 30px;
-            padding: 25px;
+            margin-bottom: 25px;
+            padding: 20px;
             background-color: rgba(255, 255, 255, 0.03);
             border-radius: 12px;
-            border-left: 5px solid #00C6AD;
+            border-left: 4px solid #00C6AD;
         }
 
         .section h2 {
-            font-size: 1.8em;
-            color: #00C6AD; /* Teal color */
+            font-size: 1.7em;
+            color: #00C6AD;
             margin-top: 0;
             margin-bottom: 15px;
             font-weight: 600;
@@ -125,22 +127,24 @@
         
         .platinum-section {
             display: flex;
-            gap: 30px;
-            margin-top: 20px;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 15px;
         }
 
         .platinum-benefits, .platinum-rewards {
             flex: 1;
+            min-width: 280px;
             background-color: rgba(0, 198, 173, 0.1);
-            padding: 20px;
+            padding: 18px;
             border-radius: 8px;
         }
 
         .platinum-benefits h3, .platinum-rewards h3 {
-            font-size: 1.3em;
+            font-size: 1.2em;
             color: #ffffff;
             margin-top: 0;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .platinum-benefits ul, .platinum-rewards ul {
@@ -149,10 +153,11 @@
         }
 
         .platinum-benefits ul li, .platinum-rewards ul li {
-            margin-bottom: 10px;
-            padding-left: 25px;
+            margin-bottom: 8px;
+            padding-left: 22px;
             position: relative;
             color: #d0d0d0;
+            font-size: 0.95em;
         }
 
         .platinum-benefits ul li::before {
@@ -163,98 +168,214 @@
             font-weight: bold;
         }
         .platinum-rewards ul li::before {
-            content: '🎁'; /* Using gift emoji directly for rewards */
+            content: '🎁';
             position: absolute;
             left: 0;
         }
 
-
         .directions-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+            gap: 18px;
+            margin-top: 15px;
         }
 
         .direction-item {
             background-color: rgba(0, 0, 0, 0.2);
-            padding: 20px;
+            padding: 18px;
             border-radius: 8px;
             border: 1px solid rgba(0, 198, 173, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content */
+            text-align: center; /* Center text */
         }
         .direction-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 198, 173, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 7px 14px rgba(0, 198, 173, 0.15);
         }
 
         .direction-item .icon {
-            font-size: 1.8em;
-            margin-right: 10px;
+            font-size: 2em; /* Made icon slightly larger for this layout */
+            margin-bottom: 8px; /* Added margin below icon */
             color: #00C6AD;
         }
 
         .direction-item span.title {
-            font-size: 1.2em;
+            font-size: 1.1em; /* Adjusted size */
             font-weight: 600;
             color: #ffffff;
+            margin-bottom: 5px;
         }
         .direction-item p {
-            font-size: 0.95em;
+            font-size: 0.85em; /* Adjusted size */
             color: #c0c0c0;
-            line-height: 1.5;
-            margin-top: 8px;
+            line-height: 1.4;
+            margin-top: 0;
             margin-bottom: 0;
         }
         
         .final-cta {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 25px;
         }
 
         .final-cta h2 {
-             font-size: 1.8em;
-             color: #00C6AD; /* Teal color */
-             margin-bottom: 10px;
+             font-size: 1.7em;
+             color: #00C6AD;
+             margin-bottom: 8px;
         }
         .final-cta p {
-            font-size: 1.1em;
+            font-size: 1.05em;
             color: #e0e0e0;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .cta-button {
             display: inline-block;
-            background-color: #00C6AD; /* Teal color */
-            color: #111827; /* Dark text on teal button */
-            padding: 12px 30px;
+            background-color: #00C6AD;
+            color: #111827;
+            padding: 11px 28px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1em;
+            font-size: 1.05em;
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .cta-button:hover {
-            background-color: #00a991; /* Darker teal on hover */
+            background-color: #00a991;
             transform: translateY(-2px);
         }
 
-        /* Scrollbar styling for webkit browsers */
-        .slide-content::-webkit-scrollbar {
-            width: 8px;
+        /* Badge List Specific Styles */
+        .badge-list-section {
+            margin-top: 35px;
+            border-left-color: #4A5568; 
         }
-        .slide-content::-webkit-scrollbar-track {
-            background: rgba(0,0,0,0.1);
-            border-radius: 10px;
+
+        .badge-list-section > h2 {
+            text-align: center;
+            margin-bottom: 8px;
+            font-size: 2em;
+            color: #00C6AD;
         }
-        .slide-content::-webkit-scrollbar-thumb {
-            background: #00C6AD;
-            border-radius: 10px;
+        .badge-list-section > p.section-intro {
+            text-align: center;
+            color: #cccccc;
+            margin-bottom: 25px;
+            font-size: 1.05em;
         }
-        .slide-content::-webkit-scrollbar-thumb:hover {
-            background: #008a75;
+
+        .badge-category {
+            margin-bottom: 35px;
         }
+
+        .category-title {
+            font-size: 1.5em; 
+            color: #ffffff;
+            margin-bottom: 18px;
+            padding-bottom: 8px;
+            display: flex;
+            align-items: baseline; 
+            font-weight: 600;
+        }
+        .category-title .category-icon {
+            margin-right: 12px;
+            font-size: 1.3em; 
+        }
+        .category-title .category-subtitle {
+            font-size: 0.75em;
+            color: #a0aec0; 
+            margin-left: 8px;
+            font-weight: 400;
+        }
+        
+        .category-blue .category-title    { border-bottom: 2px solid #5DADE2; }
+        .category-green .category-title   { border-bottom: 2px solid #58D68D; }
+        .category-yellow .category-title  { border-bottom: 2px solid #F4D03F; }
+        .category-orange .category-title  { border-bottom: 2px solid #EB984E; }
+        .category-red .category-title     { border-bottom: 2px solid #EC7063; }
+
+        .badges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 18px;
+        }
+
+        .badge-card {
+            background-color: rgba(255, 255, 255, 0.04);
+            border-radius: 8px;
+            padding: 18px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            min-height: 140px; 
+        }
+        
+        .category-blue .badge-card    { border-left: 4px solid #5DADE2; }
+        .category-green .badge-card   { border-left: 4px solid #58D68D; }
+        .category-yellow .badge-card  { border-left: 4px solid #F4D03F; }
+        .category-orange .badge-card  { border-left: 4px solid #EB984E; }
+        .category-red .badge-card     { border-left: 4px solid #EC7063; }
+
+        .badge-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.25);
+        }
+
+        .badge-card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .badge-name {
+            font-size: 1.15em; 
+            font-weight: 600;
+            color: #ffffff;
+        }
+        .badge-name .emoji-icon {
+            margin-left: 8px;
+            font-size: 1.1em; 
+        }
+
+        .badge-description {
+            font-size: 0.9em;
+            color: #b0b0b0;
+            line-height: 1.55;
+            margin-bottom: 12px;
+            flex-grow: 1; 
+        }
+
+        .badge-status {
+            font-size: 0.85em;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 4px;
+            align-self: flex-start;
+            margin-top: auto; 
+        }
+
+        .badge-status.non-platinum {
+            background-color: rgba(150, 150, 150, 0.2);
+            color: #cccccc;
+            border: 1px solid rgba(150,150,150,0.3);
+        }
+
+        .badge-status.is-platinum {
+            background: linear-gradient(45deg, #e7c64e, #D4AF37);
+            color: #2c1e00;
+            border: 1px solid #b8860b;
+            box-shadow: 0 0 6px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Scrollbar styling */
+        .slide-content::-webkit-scrollbar { width: 10px; }
+        .slide-content::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); border-radius: 10px; }
+        .slide-content::-webkit-scrollbar-thumb { background: #00C6AD; border-radius: 10px; }
+        .slide-content::-webkit-scrollbar-thumb:hover { background: #008a75; }
 
     </style>
 </head>
@@ -263,11 +384,7 @@
         <header class="slide-header">
             <div class="logo">
                 <span class="logo-up">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/>
-                    </svg>
-                    UP
-                </span>
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>UP</span>
                 <span class="logo-lms">LMS</span>
             </div>
             <span class="slide-tag">Gamification</span>
@@ -310,32 +427,156 @@
             <section class="section">
                 <h2>🧭 Badge-lərlə hansı istiqamətlər səni gözləyir?</h2>
                 <div class="directions-grid">
-                    <div class="direction-item">
-                        <span class="icon">🔹</span> <span class="title">İlk Addımlar</span>
-                        <p>Profilini doldur, ilk şərhini yaz və ilk izi qoy.</p>
+                    <div class="direction-item"><span class="icon">🚀</span> <span class="title">İlk Addımlar</span><p>Profilini tamamla, ilk addımlarını at.</p></div>
+                    <div class="direction-item"><span class="icon">📚</span> <span class="title">Öyrənmə Ruhu</span><p>Kursları bitir, biliklərini artır.</p></div>
+                    <div class="direction-item"><span class="icon">🧭</span> <span class="title">Kəşf Səfərləri</span><p>Yeni mövzular kəşf et, üfüqlərini genişlət.</p></div>
+                    <div class="direction-item"><span class="icon">💬</span> <span class="title">İcma Gücü</span><p>Paylaş, müzakirə et, birlikdə böyü.</p></div>
+                    <div class="direction-item"><span class="icon">📈</span> <span class="title">Karyera Zəfərləri</span><p>Bacarıqlarını artır, karyeranda yüksəl.</p></div>
+                    <div class="direction-item"><span class="icon">🌟</span> <span class="title">Platinium Zirvəsi</span><p>Ən dəyərli nişanları qazan, fərqlən!</p></div>
+                </div>
+            </section>
+
+            <!-- BADGE LIST SECTION START -->
+            <section class="section badge-list-section">
+                <h2>🏆 Mövcud Badge Siyahısı</h2>
+                <p class="section-intro">Platformamızda qazana biləcəyiniz bütün nişanlar və uğurlarınızın simvolları:</p>
+
+                <!-- Yeni Başlayan Kateqoriyası -->
+                <div class="badge-category category-blue">
+                    <h3 class="category-title"><span class="category-icon">🟦</span> Yeni Başlayan / First Steps <span class="category-subtitle">– (Activation & Onboarding)</span></h3>
+                    <div class="badges-grid">
+                        <div class="badge-card">
+                            <div class="badge-card-header"><span class="badge-name">1. First Smile <span class="emoji-icon">😊</span></span></div>
+                            <p class="badge-description">İlk təbəssüm, ilk addım! Xoş gəldin!</p>
+                            <span class="badge-status non-platinum">Standart</span>
+                        </div>
+                        <div class="badge-card">
+                            <div class="badge-card-header"><span class="badge-name">2. Canvas Creator <span class="emoji-icon">🎨</span></span></div>
+                            <p class="badge-description">Sənin platforma kətanındır – ifadə et özünü!</p>
+                            <span class="badge-status non-platinum">Standart</span>
+                        </div>
+                        <div class="badge-card">
+                            <div class="badge-card-header"><span class="badge-name">3. Voice Unleashed <span class="emoji-icon">🔊</span></span></div>
+                            <p class="badge-description">İlk fikrini dedin – indi daha çoxuna hazırsan!</p>
+                            <span class="badge-status non-platinum">Standart</span>
+                        </div>
+                        <div class="badge-card">
+                            <div class="badge-card-header"><span class="badge-name">4. Appreciation Giver <span class="emoji-icon">❤️</span></span></div>
+                            <p class="badge-description">Bəyənərək başqalarına ruh verdin!</p>
+                            <span class="badge-status non-platinum">Standart</span>
+                        </div>
                     </div>
-                    <div class="direction-item">
-                        <span class="icon">🔸</span> <span class="title">Öyrənmə Ruhu</span>
-                        <p>Kursları tamamla, ardıcıllıq qur.</p>
+                </div>
+
+                <!-- Öyrənmə Ustası Kateqoriyası -->
+                <div class="badge-category category-green">
+                    <h3 class="category-title"><span class="category-icon">🟩</span> Öyrənmə Ustası / Learning Virtuoso <span class="category-subtitle">– (Learning Progress)</span></h3>
+                    <div class="badges-grid">
+                        <div class="badge-card platinum">
+                            <div class="badge-card-header"><span class="badge-name">5. Consistency Champ <span class="emoji-icon">🔁</span></span></div>
+                            <p class="badge-description">21 gün davamlılıq = öyrənmə vərdişi!</p>
+                            <span class="badge-status is-platinum">👑 Platinium</span>
+                        </div>
+                        <div class="badge-card">
+                            <div class="badge-card-header"><span class="badge-name">6. Midnight Learner <span class="emoji-icon">🌙</span></span></div>
+                            <p class="badge-description">Gecənin səssizliyində bilik ovçusu!</p>
+                            <span class="badge-status non-platinum">Standart</span>
+                        </div>
+                        <div class="badge-card platinum">
+                            <div class="badge-card-header"><span class="badge-name">7. Course Mastery <span class="emoji-icon">🎓</span></span></div>
+                            <p class="badge-description">Bütün tapşırıqları bitirib tam nəticə!</p>
+                            <span class="badge-status is-platinum">👑 Platinium</span>
+                        </div>
+                        <div class="badge-card">
+                            <div class="badge-card-header"><span class="badge-name">8. Wisdom Weekly <span class="emoji-icon">🗓️</span></span></div>
+                            <p class="badge-description">Həftənin intellektual qəhrəmanı!</p>
+                            <span class="badge-status non-platinum">Standart</span>
+                        </div>
+                        <div class="badge-card platinum">
+                            <div class="badge-card-header"><span class="badge-name">9. Learning Star <span class="emoji-icon">⭐</span></span></div>
+                            <p class="badge-description">3 kursu əla nəticə ilə başa vurdun!</p>
+                            <span class="badge-status is-platinum">👑 Platinium</span>
+                        </div>
                     </div>
-                    <div class="direction-item">
-                        <span class="icon">🔹</span> <span class="title">Kəşf Səfərləri</span>
-                        <p>Fərqli mövzulara baş vur, özünə sərhəd qoyma.</p>
+                </div>
+
+                <!-- Bilik Səyyahı Kateqoriyası -->
+                <div class="badge-category category-yellow">
+                    <h3 class="category-title"><span class="category-icon">🟨</span> Bilik Səyyahı / Knowledge Voyager <span class="category-subtitle">– (Exploration & Breadth)</span></h3>
+                    <div class="badges-grid">
+                        <div class="badge-card">
+                            <div class="badge-card-header"><span class="badge-name">10. Learning Kickoff <span class="emoji-icon">🚀</span></span></div>
+                            <p class="badge-description">İlk kursa başladın – yolun açıq olsun!</p>
+                            <span class="badge-status non-platinum">Standart</span>
+                        </div>
+                        <div class="badge-card platinum">
+                            <div class="badge-card-header"><span class="badge-name">11. Multitopic Explorer <span class="emoji-icon">🧭</span></span></div>
+                            <p class="badge-description">5 fərqli mövzu – marağın sərhədsizdir!</p>
+                            <span class="badge-status is-platinum">👑 Platinium</span>
+                        </div>
+                        <div class="badge-card platinum">
+                            <div class="badge-card-header"><span class="badge-name">12. Pathway Pioneer <span class="emoji-icon">🗺️</span></span></div>
+                            <p class="badge-description">10 kurs və ya Learning Path tamamlandı!</p>
+                            <span class="badge-status is-platinum">👑 Platinium</span>
+                        </div>
+                        <div class="badge-card">
+                            <div class="badge-card-header"><span class="badge-name">13. Platform Navigator <span class="emoji-icon">📜</span></span></div>
+                            <p class="badge-description">Sistemin hər küncünü araşdırdın!</p>
+                            <span class="badge-status non-platinum">Standart</span>
+                        </div>
                     </div>
-                    <div class="direction-item">
-                        <span class="icon">🔸</span> <span class="title">İcma Gücü</span>
-                        <p>Şərh yaz, dəstək ol, birlikdə inkişaf et.</p>
+                </div>
+
+                <!-- İcma Gücü Kateqoriyası -->
+                <div class="badge-category category-orange">
+                    <h3 class="category-title"><span class="category-icon">🟧</span> İcma Gücü / Community Force <span class="category-subtitle">– (Engagement & Collaboration)</span></h3>
+                    <div class="badges-grid">
+                        <div class="badge-card">
+                            <div class="badge-card-header"><span class="badge-name">14. First Blog Voice <span class="emoji-icon">✍️</span></span></div>
+                            <p class="badge-description">İlk yazı, ilk söz – səni dinləyirik!</p>
+                            <span class="badge-status non-platinum">Standart</span>
+                        </div>
+                        <div class="badge-card">
+                            <div class="badge-card-header"><span class="badge-name">15. Top Blogger <span class="emoji-icon">🏆</span></span></div>
+                            <p class="badge-description">10 bəyənmə = oxunan, sevilən yazar!</p>
+                            <span class="badge-status non-platinum">Standart</span>
+                        </div>
+                        <div class="badge-card">
+                            <div class="badge-card-header"><span class="badge-name">16. Knowledge Helper <span class="emoji-icon">🤝</span></span></div>
+                            <p class="badge-description">Sual verənə cavab verərək icmaya dəstək oldun!</p>
+                            <span class="badge-status non-platinum">Standart</span>
+                        </div>
+                        <div class="badge-card platinum">
+                            <div class="badge-card-header"><span class="badge-name">17. Constructive Commenter <span class="emoji-icon">💬</span></span></div>
+                            <p class="badge-description">10 dəyərli fikir = daha zəngin müzakirə!</p>
+                            <span class="badge-status is-platinum">👑 Platinium</span>
+                        </div>
                     </div>
-                    <div class="direction-item">
-                        <span class="icon">🔹</span> <span class="title">Karyera Zəfərləri</span>
-                        <p>Bacarıqlarını tanıt, karyera yolunu qur.</p>
-                    </div>
-                    <div class="direction-item">
-                        <span class="icon">👑</span> <span class="title">Platinium Zənginliyi</span>
-                        <p>Həm badge, həm də hədiyyə qazan!</p>
+                </div>
+
+                <!-- Karyera Yüksəlişi Kateqoriyası -->
+                <div class="badge-category category-red">
+                    <h3 class="category-title"><span class="category-icon">🟥</span> Karyera Yüksəlişi / Career Ascent <span class="category-subtitle">– (Professional Growth)</span></h3>
+                    <div class="badges-grid">
+                        <div class="badge-card">
+                            <div class="badge-card-header"><span class="badge-name">18. Opportunity Seeker <span class="emoji-icon">🕵️</span></span></div>
+                            <p class="badge-description">Vakansiyalara göz atdın – fürsət axtarırsan!</p>
+                            <span class="badge-status non-platinum">Standart</span>
+                        </div>
+                        <div class="badge-card platinum">
+                            <div class="badge-card-header"><span class="badge-name">19. Profile Pro <span class="emoji-icon">✅</span></span></div>
+                            <p class="badge-description">Təcrübə və bacarıqları paylaşdın – parlayırsan!</p>
+                            <span class="badge-status is-platinum">👑 Platinium</span>
+                        </div>
+                        <div class="badge-card platinum">
+                            <div class="badge-card-header"><span class="badge-name">20. Career Architect <span class="emoji-icon">🚀</span></span></div>
+                            <p class="badge-description">Karyera yönümlü öyrənmə yolu tamamlandı!</p>
+                            <span class="badge-status is-platinum">👑 Platinium</span>
+                        </div>
                     </div>
                 </div>
             </section>
+            <!-- BADGE LIST SECTION END -->
 
             <section class="final-cta section">
                 <h2>✨ Hazırsan?</h2>
